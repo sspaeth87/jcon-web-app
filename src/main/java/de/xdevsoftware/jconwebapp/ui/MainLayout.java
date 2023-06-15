@@ -14,8 +14,9 @@ import com.vaadin.flow.server.WebBrowser;
 import com.vaadin.flow.theme.Theme;
 
 import de.xdevsoftware.jconwebapp.HasTitle;
-import de.xdevsoftware.jconwebapp.ui.desktop.CustomerView;
 import de.xdevsoftware.jconwebapp.ui.desktop.CustomerCreateView;
+import de.xdevsoftware.jconwebapp.ui.desktop.CustomerView;
+import de.xdevsoftware.jconwebapp.ui.mobile.CustomerCreateMobileView;
 import de.xdevsoftware.jconwebapp.ui.mobile.CustomerMobileView;
 
 
@@ -28,10 +29,11 @@ public class MainLayout extends AppLayout
 	{
 		this.addToNavbar(new DrawerToggle(), this.title);
 		
-		if(this.isMobileDevice())
+		if(!this.isMobileDevice())
 		{
 			// mobile views
 			this.addDrawerEntry(VaadinIcon.USERS, "Customers", CustomerMobileView.class);
+			this.addDrawerEntry(VaadinIcon.PLUS_CIRCLE_O, "Add Customer", CustomerCreateMobileView.class);
 		}
 		else
 		{
