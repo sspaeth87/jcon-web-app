@@ -22,6 +22,9 @@
             <column property="firstname" sortable="true" />
             <column property="lastname" sortable="true" />
             <column property="email" sortable="true" />
+            <column property="renderer" header="..." flexGrow="0">
+                <renderer type="RenderedComponent" renderedComponent="de.xdevsoftware.jconwebapp.ui.column.CustomerEditColumn" />
+            </column>
         </x:columns>
     </Grid>
 </VerticalLayout>
