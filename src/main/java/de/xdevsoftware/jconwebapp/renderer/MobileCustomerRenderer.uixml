@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
 <?xdevuiml version="1.0"?>
-<?template BROWSER_XGA?>
+<?template NONE?>
 <?import com.vaadin.flow.component.button.Button?>
 <?import com.vaadin.flow.component.html.Label?>
 <?import com.vaadin.flow.component.orderedlayout.HorizontalLayout?>

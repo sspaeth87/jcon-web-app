@@ -14,6 +14,8 @@ import com.vaadin.flow.server.WebBrowser;
 import com.vaadin.flow.theme.Theme;
 
 import de.xdevsoftware.jconwebapp.HasTitle;
+import de.xdevsoftware.jconwebapp.ui.desktop.CustomerView;
+import de.xdevsoftware.jconwebapp.ui.desktop.CustomerCreateView;
 import de.xdevsoftware.jconwebapp.ui.mobile.CustomerMobileView;
 
 
@@ -21,11 +23,11 @@ import de.xdevsoftware.jconwebapp.ui.mobile.CustomerMobileView;
 public class MainLayout extends AppLayout
 {
 	private final H2 title = new H2();
-
+	
 	public MainLayout()
 	{
 		this.addToNavbar(new DrawerToggle(), this.title);
-
+		
 		if(this.isMobileDevice())
 		{
 			// mobile views
@@ -34,18 +36,17 @@ public class MainLayout extends AppLayout
 		else
 		{
 			// desktop views
-			this.addDrawerEntry(VaadinIcon.USERS, "Customers", HomeView.class);
-			this.addDrawerEntry(VaadinIcon.PLUS_CIRCLE_O, "Add Customer", TodosView.class);
-			this.addDrawerEntry(VaadinIcon.PICTURE, "Pictures", PicturesView.class);
+			this.addDrawerEntry(VaadinIcon.USERS, "Customers", CustomerView.class);
+			this.addDrawerEntry(VaadinIcon.PLUS_CIRCLE_O, "Add Customer", CustomerCreateView.class);
 		}
 	}
-	
+
 	public boolean isMobileDevice()
 	{
 		final WebBrowser webBrowser = VaadinSession.getCurrent().getBrowser();
 		return webBrowser.isAndroid() || webBrowser.isIPhone() || webBrowser.isWindowsPhone();
 	}
-
+	
 	private void addDrawerEntry(final VaadinIcon icon, final String label, final Class<? extends Component> linkTarget)
 	{
 		final HorizontalLayout layout = new HorizontalLayout(icon.create(), new RouterLink(label, linkTarget));
@@ -54,7 +55,7 @@ public class MainLayout extends AppLayout
 		layout.setPadding(false);
 		this.addToDrawer(layout);
 	}
-
+	
 	@Override
 	public void showRouterLayoutContent(final HasElement content)
 	{

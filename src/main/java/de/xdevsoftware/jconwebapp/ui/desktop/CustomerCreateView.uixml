@@ -12,7 +12,7 @@
 <?import de.xdevsoftware.jconwebapp.model.Customer?>
 <?import de.xdevsoftware.jconwebapp.ui.MainLayout?>
 <?import java.lang.String?>
-<VerticalLayout xmlns:x="http://xml.xdev-software.com/xdevuiml" x:routeLayout="MainLayout" x:name="TodosView" x:route="todos">
+<VerticalLayout xmlns:x="http://xml.xdev-software.com/xdevuiml" x:routeLayout="MainLayout" x:name="CustomerCreateView" x:route="todos">
     <x:constraints zpos="0" width="100%" height="100%" />
     <x:event>attach.onComponentEvent</x:event>
     <FormLayout x:name="form">
@@ -26,10 +26,10 @@
             </x:typeArguments>
             <x:bindings>
                 <binding field="txtFirstname" property="firstname" required="false" nullRepresentation="" readOnly="false">
-                    <validator errorMessage="Name muss mind. 3 Zeichen lang sein." type="StringLength" minLength="3" />
+                    <validator minLength="3" errorMessage="Name muss mind. 3 Zeichen lang sein." type="StringLength" />
                 </binding>
                 <binding field="txtLastname" property="lastname" required="false" nullRepresentation="" readOnly="false">
-                    <validator errorMessage="Name muss min. 3 Zeichen lang sein." type="StringLength" minLength="3" />
+                    <validator minLength="3" errorMessage="Name muss min. 3 Zeichen lang sein." type="StringLength" />
                 </binding>
                 <binding field="txtEmail" property="email" required="false" nullRepresentation="" readOnly="false">
                     <validator errorMessage="Geben Sie ein gültige E-Mail ein." type="Email" />
